@@ -38,15 +38,13 @@ router.post('/', async (req, res) => {
 router.patch('/:id', async (req, res) => {
     const { id } = req.params;
     const { is_resolved } = req.body;
-    const contactById = await Contact.findOne({_id: id});
+    const contactById = await Contact.findByIdAndUpdate(id, {is_resolved: is_resolved}, {new: true});
 
     if (contactById === null) {
-        res.status(404);
-    } else {
-        contactById.is_resolved = is_resolved;
+        return res.status(404).send("Contact not found!");
     }
 
-    res.send(contactById);
+    res.send(reviewById);
 });
 
 router.delete('/:id', async (req, res) => {

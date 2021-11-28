@@ -5,18 +5,18 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const {validateRegister, authenticateToken} = require("../middleware/validations.js");
+const validateRegister = require('../middleware/validations');
 
 router.post('/register', async (req, res) => {
     try {
         const err = validateRegister(req.body);
-
         if (err) {
             throw err;
         }
 
         const {email, firstname, lastname, password, role} = req.body;
-        const newUser = new User({lastname, firstname, email, password, role});
+        const hash = await bcrypt.hash(password, 8);
+        const newUser = new User({lastname, firstname, email, password: hash, role});
         await newUser.save();
         
         res.send(newUser);
@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
 
         const user = await User.findOne({email: email});
 
-        if (user && bcrypt.compare(password, user.password)) {
+        if (user && await bcrypt.compare(password, user.password)) {
             const token = jwt.sign(user.toObject(), process.env.ACCESS_TOKEN_SECRET);
             res.status(status).send(token);
         } else {
