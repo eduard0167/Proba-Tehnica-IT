@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const validateRegister = require('../middleware/validations');
 
+
 router.post('/register', async (req, res) => {
     try {
         const err = validateRegister(req.body);

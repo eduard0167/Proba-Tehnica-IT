@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const validator = require("email-validator");
-const bcrypt = require("bcrypt");
 const Review = require('./Review');
 
 const userSchema = new mongoose.Schema({
@@ -35,6 +34,12 @@ const userSchema = new mongoose.Schema({
         ref: 'Review'
     }]
 });
+
+userSchema.post('findOneAndDelete', async function (user) {
+    if (user.reviews.length) {
+        await Review.deleteMany({ _id: { $in: user.reviews } })
+    }
+})
 
 const User = mongoose.model('User', userSchema);
 

@@ -61,10 +61,8 @@ router.delete('/:id', async (req, res) => {
         res.status(404);
     }
     
-    const userById = await User.findById(reviewById.user_id);
-    userById.reviews.filter(value => value !== id);
+    await User.findByIdAndUpdate(reviewById.user_id,  { $pull: { reviews: id } });
 
-    await userById.save();
     res.send(reviewById);    
 });
 

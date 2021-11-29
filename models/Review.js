@@ -8,7 +8,7 @@ const reviewSchema = new mongoose.Schema({
     },
     user_id: {
         type: String,
-        maxLength: 28,
+        maxLength: 24,
         minlength:24
     }
 });
