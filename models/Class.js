@@ -15,7 +15,11 @@ const classSchema = new mongoose.Schema({
         type: String,
         maxLength: 24,
         minlength:24
-    }
+    },
+    students: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }]
 });
 
 const Class = mongoose.model('Class', classSchema);

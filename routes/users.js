@@ -3,13 +3,13 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const users = await User.find({}, {password: false}).populate('reviews');
+    const users = await User.find({}, {password: false}).populate('reviews').populate('classes');
     res.send(users);
 });
 
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
-    const userById = await User.findOne({_id: id}, {password: false}).populate('reviews');
+    const userById = await User.findOne({_id: id}, {password: false}).populate('reviews').populate('classes');
 
     if (userById === null) {
         res.status(404);
