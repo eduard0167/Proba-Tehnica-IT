@@ -3,10 +3,6 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    // const c1 = new Contact({user: 'eduard0167', name: 'eduard', email: 'eduard@gmail.com', message: 'oare merge?'});
-    // await c1.save();
-    // const c2 = new Contact({user: 'john01', name: 'john', email: 'john@yahoo.com', message: 'merge ba'});
-    // await c2.save();
     const contacts = await Contact.find({});
     res.send(contacts);
 });
