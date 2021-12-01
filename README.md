@@ -7,8 +7,11 @@ Rulare aplicatie:
     Valoare pentru token o poti obtine ruland in node comanda:
     require('crypto').randomBytes(64).toString('hex')
     Ex: 41cad8704b4014375a2ce496756bdccd968d8e8c3742f2b40a8aa9cb8e0eab05b9557513b0c80fd46894719887eb1b55d46caecf2a3f7ee27162954a020cfa57
+
     2) npm install - instaleaza pachetele necesare
+    
     3) mongod - porneste baza de date
+    
     4) node app.js - porneste aplicatia
   
 Implementare:
