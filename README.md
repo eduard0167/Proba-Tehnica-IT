@@ -1,6 +1,6 @@
 Mitroi Eduard Ionut
   
-                                            Proba tehnica - Backend
+                                                          Proba tehnica - Backend
                         
 Rulare aplicatie:
 
