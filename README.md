@@ -3,6 +3,7 @@ Mitroi Eduard Ionut
                         Proba tehnica - Backend
                         
 Rulare aplicatie:
+
     1) adauga un fisier .env in care adaugi ACCESS_TOKEN_SECRET pentru jwt.
     Valoare pentru token o poti obtine ruland in node comanda:
     require('crypto').randomBytes(64).toString('hex')
