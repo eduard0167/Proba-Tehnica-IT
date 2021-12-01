@@ -17,6 +17,7 @@ Rulare aplicatie:
   
 Implementare:
   Am impartit implementarea in probei in 3 foldere:
+  
     -> routes - contine routele
     -> models - contine schemele entitatilor
     -> middleware - contine functii de validare pentru autentificare si autorizare
