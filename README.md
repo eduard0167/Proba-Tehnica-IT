@@ -1,6 +1,6 @@
 Mitroi Eduard Ionut
   
-                                                          Proba tehnica - Backend
+                                                       Proba tehnica - Backend
                         
 Rulare aplicatie:
 
@@ -29,7 +29,7 @@ Implementare:
   
   Partea cea mai grea a probei a fost realizarea autentificarii si sa inteleg cum
   functioneaza JWT token, care a fost metoda pe care am ales-o pentru a implementa
-  autentificare si autorizare. Pentru a realiza autorizarea pentru rutele la care
+  autentificarea si autorizarea. Pentru a realiza autorizarea pentru rutele pe care
   un singur rol le putea accesa, am considerat ca token se afla in headers ->
   Authorization -> Bearer token_jwt.
 
